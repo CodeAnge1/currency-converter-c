@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/converter.css">
+    <script src="../js/main.js"></script>
+</head>
+<body>
+<header>
+    <span class="logo">
+        <img src="../images/logo.png" alt="logo" id="logo-img">
+        <label for="logo-img">Currency Converter Pro</label>
+    </span>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#" class="active">Converter</a></li>
+            <li><a href="#">Top pairs</a></li>
+        </ul>
+    </nav>
+    <span class="theme-switcher">
+        <input type="checkbox" id="darkmode-toggle"/>
+        <label for="darkmode-toggle"></label>
+        <img class="svg-image moon" src="../images/moon-24.svg" alt="Switch Theme">
+    </span>
+</header>
+<div class="converter-container">
+    <div class="converter-info">
+        <h2>Currency Converter</h2>
+        <p>Convert any currency to another using live rates.</p>
+    </div>
+    <div class="converter-form">
+        <div class="currency-conversion-group">
+            <div class="conversion-block block-from">
+                <label for="amount-input">From:</label>
+                <div class="input-with-select">
+                    <input id="amount-input" type="number" min="0" placeholder="1">
+                    <span class="currency-text currency-from-text">USD</span>
+<!--                    <button id="from-currency-name">-->
+<!--                        <img class="svg-image currency-list" src="../images/chevron-down-24.svg" alt="Open menu">-->
+<!--                    </button>-->
+                </div>
+            </div>
+            
+            <span class="direction-icon">
+                <input type="checkbox" id="direction-toggle">
+                <img class="svg-image currency-list" src="../images/arrow-switch-24.svg" alt="">
+            </span>
+
+            <div class="conversion-block block-to">
+                <label for="result-output">To:</label>
+                <div class="input-with-select">
+                    <input id="result-output" type="number" value="0.93" disabled>
+                    <span class="currency-text currency-to-text">USD</span>
+<!--                    <button id="to-currency-name">-->
+<!--                        <img class="svg-image currency-list" src="../images/chevron-down-24.svg" alt="Open menu">-->
+<!--                    </button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/currency-pair" id="currency-pair-redirect" class="pair-block" data-from="USD" data-to="EUR">
+        <div class="pair-rate-data">
+            <h2>USD/EUR</h2>
+            <p>0.9342</p>
+        </div>
+        <div class="pair-rate-changes-block">
+            <div class="pair-rate-changes-data">
+                <div class="pair-rate-changes-unit">
+                    <p>Daily</p>
+                    <p class="negative">-0.39%</p>
+                </div>
+                <div class="pair-rate-changes-unit">
+                    <p>Weekly</p>
+                    <p class="negative">-0.25%</p>
+                </div>
+                <div class="pair-rate-changes-unit">
+                    <p>Yearly</p>
+                    <p class="positive">3.17%</p>
+                </div>
+            </div>
+            <button class="see-charts-button">See charts</button>
+        </div>
+    </a>
+</div>
+
+</body>
+</html>
