@@ -1,0 +1,59 @@
+body {
+    font-family: "Archivo", sans-serif;
+}
+
+.not-found-text-container {
+    display: inline-flex;
+    position: relative;
+    flex-direction: column;
+    left: 50%;
+    max-width: 400px;
+    transform: translate(-50%, 50%);
+    align-items: center;
+}
+
+.not-found-text-container h1 {
+    font-size: 128px;
+    color: #636AE8;
+    margin: 0;
+}
+
+.not-found-text-container p {
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #808080;
+    text-align: center;
+}
+
+.go-to-home-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.go-to-home-container:hover {
+    transform: translateY(-3px);
+}
+
+.go-to-home-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.go-to-home-container img {
+    width: 24px;
+    height: 24px;
+}
+
+.go-to-home-container label {
+    position: relative;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
