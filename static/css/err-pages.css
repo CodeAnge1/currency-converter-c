@@ -2,23 +2,33 @@ body {
     font-family: "Archivo", sans-serif;
 }
 
-.not-found-text-container {
+.content-container {
     display: inline-flex;
-    position: relative;
+    position: absolute;
     flex-direction: column;
     left: 50%;
+    top: 50%;
     max-width: 400px;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, -50%);
     align-items: center;
 }
 
-.not-found-text-container h1 {
+.content-container .text-container {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container h1 {
     font-size: 128px;
     color: #636AE8;
     margin: 0;
 }
 
-.not-found-text-container p {
+.content-container p {
     font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -26,32 +36,40 @@ body {
     text-align: center;
 }
 
-.go-to-home-container {
+.button-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 20px;
     cursor: pointer;
+    border: 2px solid #e3e3e2;
+    border-radius: 8px;
+    width: 100%;
+    height: 40px;
     transition: transform 0.3s ease;
 }
 
-.go-to-home-container:hover {
+.button-container:hover {
     transform: translateY(-3px);
 }
 
-.go-to-home-container button {
+.button-container button {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.go-to-home-container img {
+.button-container img {
     width: 24px;
     height: 24px;
 }
 
-.go-to-home-container label {
+.button-container label {
     position: relative;
     font-weight: 600;
     font-size: 16px;
