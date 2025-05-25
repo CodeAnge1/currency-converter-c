@@ -24,6 +24,7 @@ errCode_t register_route(router_t *router, const char* url, handler_t handler) {
 }
 
 void register_routes(router_t *router) {
+    register_route(router, "/", home_handler);
     register_route(router, "/converter", converter_handler);
 
     register_route(router, "/css/*", static_files_handler);

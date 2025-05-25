@@ -3,6 +3,18 @@
 #include "../input/input.h"
 #include "../core/types.h"
 
+
+bool home_handler(struct mg_connection *c, struct mg_http_message *hm) {
+    log_debug("Home handler called");
+    bool is_found = false;
+
+    if (mg_match(hm->uri, mg_str("/"), NULL)) {
+        mg_http_reply(c, 302, "Location: /converter\r\n", "");
+        is_found = true;
+    }
+    return is_found;
+}
+
 bool converter_handler(struct mg_connection *c, struct mg_http_message *hm) {
     bool is_found = false;
     log_debug("Converter handler called");
