@@ -1,4 +1,6 @@
 #include <logger/log.h>
+#include <sys/stat.h>
+#include <stdbool.h>
 
 #include "../core/types.h"
 #include "../input/input.h"
@@ -25,6 +27,11 @@ const char *get_content_type(const char *path) {
                 current_mime = content_types[i].mime;
 
     return current_mime;
+}
+
+bool file_is_exists(const char* path) {
+    struct stat st;
+    return stat(path, &st) == 0;
 }
 
 void init_logger() {

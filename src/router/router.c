@@ -14,7 +14,7 @@ errCode_t register_route(router_t *router, const char* url, handler_t handler) {
         router->routes[router->routes_count].path = url;
         router->routes[router->routes_count].handler = handler;
         router->routes_count++;
-        log_info("Route registered successfully: %s", url);
+        log_debug("Route registered successfully: %s", url);
     } else {
         err = ERR_ALLOC_FAILED;
         log_error("Failed to register route: %s, error code: %d", url, err);
@@ -29,6 +29,9 @@ void register_routes(router_t *router) {
     register_route(router, "/css/*", static_files_handler);
     register_route(router, "/js/*", static_files_handler);
     register_route(router, "/images/*", static_files_handler);
+
+    register_route(router, "/api/currencies", api_handler);
+    register_route(router, "/api/currencies/*", api_handler);
 }
 
 void router_handle_request(struct mg_connection *c, int ev, void *ev_data) {
