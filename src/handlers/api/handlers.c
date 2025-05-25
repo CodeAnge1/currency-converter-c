@@ -1,15 +1,15 @@
 #include <logger/log.h>
 
-#include "../handlers.h"
-#include "../input/input.h"
-#include "../core/types.h"
-#include "../utils/utils.h"
+#include "handlers/handlers.h"
+#include "input/input.h"
+#include "core/types.h"
+#include "utils/utils.h"
 
 bool api_handler(struct mg_connection *c, struct mg_http_message *hm) {
     log_debug("Api handler called");
     bool is_found = false;
     struct mg_str currency_name = mg_str("");
-    char* base_data_path = "../resources/api_data/currencies";
+    char* base_data_path = "resources/api_data/currencies";
     char file_path[256];
 
     if (mg_match(hm->uri, mg_str("/api/currencies"), NULL)) {

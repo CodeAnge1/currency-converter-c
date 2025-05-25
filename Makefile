@@ -1,19 +1,20 @@
 CC = gcc
-FLAGS = -Wall -Wextra -g -std=c11 -DDEBUG -DLOG_USE_COLOR -I./lib/
+FLAGS = -Wall -Wextra -g -std=c11 -DDEBUG -DLOG_USE_COLOR -D_GNU_SOURCE -D_POSIX_C_SOURCE=199309L -I./lib/ -I./include/
+EXTRA_FLAGS = 
 
-# TODO: Check system and add flags if required
-LIBS = -lws2_32 -lpthread
+ifeq ($(shell uname -o),Msys)
+	EXTRA_FLAGS += -lws2_32 -lpthread
+endif
 
 SRC_DIR = ./
 BUILD_DIR = ./build
 BIN_DIR = ./bin
 
-# Dirty, but it works in mingw environment
 ALL_SRC := $(shell find $(SRC_DIR) | grep "\.c$$")
 
 ALL_OBJ := $(patsubst ./%.c,$(BUILD_DIR)/%.o,$(ALL_SRC))
 
-TARGET = $(BIN_DIR)/server.exe
+TARGET = $(BIN_DIR)/server
 
 all: prepare-dirs $(TARGET)
 
@@ -29,10 +30,10 @@ $(BIN_DIR):
 
 $(BUILD_DIR)/%.o: %.c
 	mkdir -p $(@D)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) $(EXTRA_FLAGS) -c $< -o $@
 
 $(TARGET): $(ALL_OBJ) | prepare-dirs
-	$(CC) $(FLAGS) $^ $(LIBS) -o $@
+	$(CC) $(FLAGS) $^ $(EXTRA_FLAGS) -o $@
 
 clean:
 	rm -rf $(BUILD_DIR)/*

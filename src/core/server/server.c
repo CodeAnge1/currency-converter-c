@@ -1,10 +1,9 @@
-#include <stdio.h>
 #include <logger/log.h>
 #include <mongoose/mongoose.h>
 
-#include "server.h"
-#include "../types.h"
-#include "../../router/router.h"
+#include "core/server/server.h"
+#include "core/types.h"
+#include "router/router.h"
 
 void get_server_addr(addr_t* addr) {
     snprintf(addr->full_url, sizeof(addr->full_url), "http://%s:%d", addr->host, addr->port);

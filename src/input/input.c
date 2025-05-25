@@ -1,7 +1,7 @@
 #include <logger/log.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include "input.h"
+
+#include "input/input.h"
 
 char *read_file(const char *filename) {
     log_trace("Reading file: %s", filename);

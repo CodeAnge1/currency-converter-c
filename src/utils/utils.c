@@ -2,8 +2,8 @@
 #include <sys/stat.h>
 #include <stdbool.h>
 
-#include "../core/types.h"
-#include "../input/input.h"
+#include "core/types.h"
+#include "input/input.h"
 
 static const content_type_t content_types[] = {
     {".html", "text/html; charset=utf-8"},

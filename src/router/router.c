@@ -2,9 +2,9 @@
 #include <logger/log.h>
 #include <mongoose/mongoose.h>
 
-#include "../handlers/handlers.h"
-#include "../core/types.h"
-#include "../input/input.h"
+#include "handlers/handlers.h"
+#include "core/types.h"
+#include "input/input.h"
 
 errCode_t register_route(router_t *router, const char* url, handler_t handler) {
     errCode_t err = ERR_OK;
