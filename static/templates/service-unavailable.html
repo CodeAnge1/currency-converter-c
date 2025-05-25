@@ -15,9 +15,10 @@
     </span>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/converter">Converter</a></li>
-            <li><a href="#">Top pairs</a></li>
+            <li><a href="/pairs">Top pairs</a></li>
+            <li><a href="/about">About</a></li>
         </ul>
     </nav>
     <span class="theme-switcher">
@@ -44,7 +45,7 @@
         <label for="go-to-home">Contact support</label>
     </div>
     <div class="button-container">
-        <button id="go-to-home">
+        <button id="go-to-home" onclick="window.location.href = '/';">
             <img class="svg-image" src="../images/home-24.svg" alt="Home">
         </button>
         <label for="go-to-home">Go to Homepage</label>

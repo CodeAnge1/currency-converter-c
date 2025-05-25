@@ -16,9 +16,10 @@
     </span>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#" class="active">Converter</a></li>
-            <li><a href="#">Top pairs</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/converter" class="active">Converter</a></li>
+            <li><a href="/pairs">Top pairs</a></li>
+            <li><a href="/about">About</a></li>
         </ul>
     </nav>
     <span class="theme-switcher">
@@ -39,9 +40,6 @@
                 <div class="input-with-select">
                     <input id="amount-input" type="number" min="0" placeholder="1">
                     <span class="currency-text currency-from-text">USD</span>
-<!--                    <button id="from-currency-name">-->
-<!--                        <img class="svg-image currency-list" src="../images/chevron-down-24.svg" alt="Open menu">-->
-<!--                    </button>-->
                 </div>
             </div>
             
@@ -53,11 +51,8 @@
             <div class="conversion-block block-to">
                 <label for="result-output">To:</label>
                 <div class="input-with-select">
-                    <input id="result-output" type="number" value="0.93" disabled>
+                    <input id="result-output" type="number" value="1" disabled>
                     <span class="currency-text currency-to-text">USD</span>
-<!--                    <button id="to-currency-name">-->
-<!--                        <img class="svg-image currency-list" src="../images/chevron-down-24.svg" alt="Open menu">-->
-<!--                    </button>-->
                 </div>
             </div>
         </div>
@@ -71,21 +66,33 @@
             <div class="pair-rate-changes-data">
                 <div class="pair-rate-changes-unit">
                     <p>Daily</p>
-                    <p class="negative">-0.39%</p>
+                    <p class="not-available">N/A</p>
                 </div>
                 <div class="pair-rate-changes-unit">
                     <p>Weekly</p>
-                    <p class="negative">-0.25%</p>
+                    <p class="not-available">N/A</p>
                 </div>
                 <div class="pair-rate-changes-unit">
                     <p>Yearly</p>
-                    <p class="positive">3.17%</p>
+                    <p class="not-available">N/A</p>
                 </div>
             </div>
             <button class="see-charts-button">See charts</button>
         </div>
     </a>
 </div>
-
+<div class="currency-popup" id="currency-popup">
+    <div class="currency-popup-content">
+        <div class="currency-popup-header">
+            <h3>Choose a currency</h3>
+            <button class="close-popup">&times;</button>
+        </div>
+        <div class="currency-search">
+            <input type="text" id="currency-search-input" placeholder="Currency search...">
+        </div>
+        <div class="currency-list" id="currency-list">
+        </div>
+    </div>
+</div>
 </body>
 </html>
