@@ -1,9 +1,9 @@
 #include <logger/log.h>
 
-#include "../handlers.h"
-#include "../core/types.h"
-#include "../input/input.h"
-#include "../utils/utils.h"
+#include "handlers/handlers.h"
+#include "core/types.h"
+#include "input/input.h"
+#include "utils/utils.h"
 
 bool static_files_handler(struct mg_connection *c, struct mg_http_message *hm) {
     bool is_found = false;
@@ -12,7 +12,7 @@ bool static_files_handler(struct mg_connection *c, struct mg_http_message *hm) {
         log_debug("Static file requested: %.*s", (int)hm->uri.len, hm->uri.buf);
 
         char file_path[256];
-        snprintf(file_path, sizeof(file_path), "../static%.*s", (int)hm->uri.len, hm->uri.buf);
+        snprintf(file_path, sizeof(file_path), "static%.*s", (int)hm->uri.len, hm->uri.buf);
 
         struct mg_http_serve_opts opts = {
             .mime_types = get_content_type(file_path)

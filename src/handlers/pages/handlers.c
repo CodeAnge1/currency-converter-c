@@ -1,7 +1,8 @@
 #include <logger/log.h>
-#include "../handlers.h"
-#include "../input/input.h"
-#include "../core/types.h"
+
+#include "handlers/handlers.h"
+#include "input/input.h"
+#include "core/types.h"
 
 
 bool home_handler(struct mg_connection *c, struct mg_http_message *hm) {
@@ -19,7 +20,7 @@ bool converter_handler(struct mg_connection *c, struct mg_http_message *hm) {
     bool is_found = false;
     log_debug("Converter handler called");
     if (mg_match(hm->uri, mg_str("/converter"), NULL)) {
-        char *data = read_file("../static/templates/converter.html");
+        char *data = read_file("static/templates/converter.html");
         if (data) {
             mg_http_reply(c, 200, "Content-Type: text/html; charset=utf-8\r\n", data);
             free(data);
@@ -40,17 +41,17 @@ bool err_handler(struct mg_connection *c, struct mg_http_message *hm, size_t sta
 
     if (status_code == 404) {
         log_debug("Not found error handler called");
-        template_path = "../static/templates/not-found.html";
+        template_path = "static/templates/not-found.html";
         data = read_file(template_path);
     }
     if (status_code == 503 || !data) {
         log_debug("Service unavailable error handler called");
-        template_path = "../static/templates/service-unavailable.html";
+        template_path = "static/templates/service-unavailable.html";
         data = read_file(template_path);
     }
     else {
         log_warn("Unknown error handler called, status code: %zu", status_code);
-        template_path = "../static/templates/service-unavailable.html";
+        template_path = "static/templates/service-unavailable.html";
     }
 
     if (data) {
